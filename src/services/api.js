@@ -1,6 +1,12 @@
 const PROD_API_BASE_URL = 'https://online-product-auction-backend.onrender.com/api';
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV ? '/api' : PROD_API_BASE_URL);
+const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
+// In production, avoid relative API URLs (e.g. /api) that point to Vercel app origin.
+const API_BASE_URL = import.meta.env.DEV
+  ? configuredBaseUrl || '/api'
+  : configuredBaseUrl && !configuredBaseUrl.startsWith('/')
+    ? configuredBaseUrl
+    : PROD_API_BASE_URL;
 
 export const getAuthToken = () => localStorage.getItem('token');
 
