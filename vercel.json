@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://online-product-auction-backend.onrender.com/api/:path*"
+    }
+  ]
+}
