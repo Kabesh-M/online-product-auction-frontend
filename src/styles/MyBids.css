@@ -1,0 +1,18 @@
+.my-bids-container {
+  /* Inherits from MyAuctions.css */
+}
+
+.bids-table .table-header {
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 0.8fr;
+}
+
+.bids-table .table-row {
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 0.8fr;
+}
+
+@media (max-width: 768px) {
+  .bids-table .table-header,
+  .bids-table .table-row {
+    grid-template-columns: 1fr;
+  }
+}
